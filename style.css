@@ -30,6 +30,7 @@ body {
   background-repeat: no-repeat; /*Inibi a repetição automática da imagem*/
   background-position: top center; /*Posiciona a imagem no topo e ao centro*/
   background-size: cover; /*Expande e ocupa todo o espaço*/ /*Conteiner faz com que a imagem fique limitada dentro do container*/
+  height: 100vh;    /*Mostra e limita a parte visualizada ao conteúdo*/
 
   /*A configuração acima, também pode ser feita da seguinte forma*/
   /*background: url(./assets/bg-mobile.jpg) no-repeat top center/cover; */
@@ -43,7 +44,8 @@ body * {
 #container {
   /*Seletor de ID container*/
   /*border: 1px solid red; /*Bordas para visualizar melhor o espaço - Largura; cor; */
-  width: 360px; /*Largura*/
+  width: 100%; /*100% da Largura do container*/
+  max-width: 588px; /*O container terá no máximo*/
   height: 612px; /*Altura*/
   /*margin-top: 56px;                           Preenche margem superior*/
   /*margin-right: auto;                         Preenche o espaço a direita*/
@@ -169,4 +171,14 @@ footer {
   padding: 24px 0;
   text-align: center;
   font-size: 14px;
+}
+
+/*media queries*/
+@media (min-width: 700px) {
+  :root {
+    --bg-url: url(./assets/bg-desktop.jpg);
+  }
+  .light {
+    --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
 }
