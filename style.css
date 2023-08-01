@@ -30,7 +30,7 @@ body {
   background-repeat: no-repeat; /*Inibi a repetição automática da imagem*/
   background-position: top center; /*Posiciona a imagem no topo e ao centro*/
   background-size: cover; /*Expande e ocupa todo o espaço*/ /*Conteiner faz com que a imagem fique limitada dentro do container*/
-  height: 100vh;    /*Mostra e limita a parte visualizada ao conteúdo*/
+  height: 100vh; /*Mostra e limita a parte visualizada ao conteúdo*/
 
   /*A configuração acima, também pode ser feita da seguinte forma*/
   /*background: url(./assets/bg-mobile.jpg) no-repeat top center/cover; */
@@ -92,11 +92,17 @@ body * {
   left: 0; /*Posiciona botão a esquerda*/
   z-index: 1; /*Posiciona o botão na camada superior*/
   transform: translateY(-50%); /*Posiciona botão sobre span*/
+  animation: slide-back 0.4s; /*usa animação para movimentar o botão light/dark */
 }
 
 .light #switch button {
-  right: 0; /*Posiciona botão a direita*/
-  left: initial; /*Posiciona botão inicial*/
+  /*right: 0; /*Posiciona botão a direita*/
+  /*left: initial; /*Posiciona botão inicial*/
+  animation: slide-in 0.4s forwards; /*usa animação para movimentar o botão light/dark */
+}
+
+#switch button:hover {
+  outline: 8px solid var(--highlight-color);
 }
 
 #switch span {
@@ -180,5 +186,26 @@ footer {
   }
   .light {
     --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
+}
+
+/* animation */
+@keyframes slide-in {
+  /*Cria animação botão light/dark*/
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-back {
+  /*Cria animação botão light/dark*/
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
   }
 }
