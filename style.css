@@ -1,0 +1,172 @@
+* {
+  /*Reseta padrões do navegador*/
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /*a medida de qualquer caixa abaixo, será a borda*/
+}
+
+:root {
+  --text-color: white; /*Criando a variável text-color*/
+  --bg-url: url(./assets/bg-mobile.jpg); /*Cria a variável background. Adiciona imagem ao fundo do projeto*/
+  --stroke-color: rgba(255, 255, 255, 0.5); /*Variavel bordas dos botões*/
+  --surface-color: rgba(255, 255, 255, 0.05); /*Variavel interna dos botões*/
+  --surface-color-hover: rgba(0, 0, 0, 0.05); /*Variáve hover*/
+  --highlight-color: rgba(255, 255, 255, 0.2);
+  --switch-bg-url: url(./assets/moon-stars.svg);
+}
+
+.light {
+  --text-color: black;
+  --bg-url: url(./assets/bg-mobile-light.jpg); /*Recebe a variável background light. Adiciona imagem ao fundo do projeto*/
+  --stroke-color: rgba(0, 0, 0, 0.5); /*Variavel bordas dos botões*/
+  --surface-color: rgba(0, 0, 0, 0.05); /*Variavel interna dos botões*/
+  --surface-color-hover: rgba(0, 0, 0, 0.05); /*Variáve hover*/
+  --highlight-color: rgba(0, 0, 0, 0.1);
+  --switch-bg-url: url(./assets/sun.svg);
+}
+
+body {
+  background-image: var(--bg-url); /*Recebe a variável background*/
+  background-repeat: no-repeat; /*Inibi a repetição automática da imagem*/
+  background-position: top center; /*Posiciona a imagem no topo e ao centro*/
+  background-size: cover; /*Expande e ocupa todo o espaço*/ /*Conteiner faz com que a imagem fique limitada dentro do container*/
+
+  /*A configuração acima, também pode ser feita da seguinte forma*/
+  /*background: url(./assets/bg-mobile.jpg) no-repeat top center/cover; */
+}
+body * {
+  /* Usar * seletor universal. Tudo dentro de Body usará esta configuração*/
+  font-family: "Inter", sans-serif;
+  color: var(--text-color); /*Recebe a variável --text-color*/
+}
+
+#container {
+  /*Seletor de ID container*/
+  /*border: 1px solid red; /*Bordas para visualizar melhor o espaço - Largura; cor; */
+  width: 360px; /*Largura*/
+  height: 612px; /*Altura*/
+  /*margin-top: 56px;                           Preenche margem superior*/
+  /*margin-right: auto;                         Preenche o espaço a direita*/
+  /*margin-bottom: 0px;                         Preenche o espaço abaixo*/
+  /*margin-left: auto;                          Preenche o espaço a esquerda*/
+  margin: 56px auto 0px; /*Em ordem, TOP, rigth e left e bottom*/
+  padding: 0 24px;
+}
+/* Profile*/
+#profile {
+  /*Seletor de ID profile*/
+  text-align: center; /*Centraliza conteudo em Profile, inclusive #profile img*/
+  padding: 24px; /*Preenchimento interno padrão da caixa*/
+}
+
+#profile img {
+  /*Seletor de ID profile img*/
+  width: 112px;
+}
+
+#profile p {
+  /*Seletor para paragrafo*/
+  font-weight: 500; /*Peso da letra; bold; Negrito*/
+  line-height: 24px; /*altura da linha*/
+  margin-top: 8px; /*Margem superior*/
+}
+
+/*Switch*/
+#switch {
+  position: relative;
+  width: 64px;
+  margin: 4px auto; /*Centraliza switch*/
+}
+
+#switch button {
+  /*Botão sun/moon*/
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+  position: absolute; /*Sobrepõe button e span*/
+  top: 50%; /*Posiciona botão sobre span*/
+  left: 0; /*Posiciona botão a esquerda*/
+  z-index: 1; /*Posiciona o botão na camada superior*/
+  transform: translateY(-50%); /*Posiciona botão sobre span*/
+}
+
+.light #switch button {
+  right: 0; /*Posiciona botão a direita*/
+  left: initial; /*Posiciona botão inicial*/
+}
+
+#switch span {
+  /*Track*/
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 9999px;
+}
+
+/*Links/Botão - Lista*/
+
+ul {
+  list-style: none; /*retira os pontos característicos de lista*/
+
+  display: flex; /*Ocupa todos os espaços disponíveis*/
+  flex-direction: column; /*Ordena os elementos em:   colunas*/
+  gap: 16px; /* Impõe espaçamento entre os elementos em lista */
+  padding: 24px 0px;
+}
+
+ul li a {
+  display: flex; /*Ocupa todos os espaços disponíveis*/
+  align-items: center; /*Centraliza os elementos horizontal*/
+  justify-content: center; /*Centraliza os elementos vertical*/
+
+  padding: 16px 24px; /*Preenchimento interno padrão*/
+
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color); /*bordas*/
+  border-radius: 8px; /*Arredondamento das bordas*/
+  backdrop-filter: blur(4px); /*Embaçamento*/
+  -webkit-backdrop-filter: blur(4px); /*Embaçamento p Safari*/
+  text-decoration: none; /*Retira a linha sob o link*/
+  font-weight: 500;
+  transition: background 0.5s; /*Tempo de transição sobre o botão*/
+}
+
+/*Pseudo-selector*/
+ul li a:hover {
+  background: var(--surface-color-hover);
+  border: 1.5px solid var(--text-color); /*bordas*/
+}
+
+/*Links Sociais*/
+#social-links {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  padding: 24px 0px;
+  font-size: 24px;
+}
+
+#social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  transition: background 0.5s;
+  border-radius: 50%;
+}
+
+#social-links a:hover {
+  background: var(--highlight-color);
+}
+
+footer {
+  padding: 24px 0;
+  text-align: center;
+  font-size: 14px;
+}
