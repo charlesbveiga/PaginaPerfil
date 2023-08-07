@@ -15,9 +15,12 @@ function toggleMode() {
   //substituir a imagem
   if (html.classList.contains("light")) {
     //se tiver ligtn mode, adicionar imagem ligth
-    img.setAttribute("src", "./assets/avatar-light.png")
+    img.setAttribute("src", "./assets/avatar_charles.png")
   } else {
     //se tiver sem ligth mode, manter a imagem normal
-    img.setAttribute("src", "./assets/avatar.png")
+    img.setAttribute(
+      "src",
+      "./assets/avatar_charles_dark.png"
+    )
   }
 }
